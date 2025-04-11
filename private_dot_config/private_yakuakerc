@@ -1,0 +1,26 @@
+[Behavior]
+OpenAfterStart=true
+
+[Desktop Entry]
+DefaultProfile=
+
+[Dialogs]
+FirstRun=false
+
+[Favorite Profiles]
+Favorites=
+
+[Shortcuts]
+switch-to-session-1=Alt+&
+switch-to-session-10=Alt+À
+switch-to-session-2=Alt+É
+switch-to-session-3=Alt+"
+switch-to-session-4=Alt+'
+switch-to-session-5=Alt+(
+switch-to-session-6=Alt+-
+switch-to-session-7=Alt+È
+switch-to-session-8=Alt+_
+switch-to-session-9=Alt+Ç
+
+[Window]
+Height=68

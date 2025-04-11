@@ -1,0 +1,17 @@
+zimfw() { source /home/tcoignio/.zim/zimfw.zsh "${@}" }
+zmodule() { source /home/tcoignio/.zim/zimfw.zsh "${@}" }
+fpath=(/home/tcoignio/.zim/modules/git/functions /home/tcoignio/.zim/modules/utility/functions /home/tcoignio/.zim/modules/duration-info/functions /home/tcoignio/.zim/modules/git-info/functions /home/tcoignio/.zim/modules/prompt-pwd/functions /home/tcoignio/.zim/modules/zsh-completions/src ${fpath})
+autoload -Uz -- git-alias-lookup git-branch-current git-branch-delete-interactive git-branch-remote-tracking git-dir git-ignore-add git-root git-stash-clear-interactive git-stash-recover git-submodule-move git-submodule-remove mkcd mkpw duration-info-precmd duration-info-preexec coalesce git-action git-info prompt-pwd
+source /home/tcoignio/.zim/modules/environment/init.zsh
+source /home/tcoignio/.zim/modules/git/init.zsh
+source /home/tcoignio/.zim/modules/input/init.zsh
+source /home/tcoignio/.zim/modules/termtitle/init.zsh
+source /home/tcoignio/.zim/modules/utility/init.zsh
+source /home/tcoignio/.zim/modules/magic-enter/init.zsh
+source /home/tcoignio/.zim/modules/fzf/init.zsh
+source /home/tcoignio/.zim/modules/duration-info/init.zsh
+source /home/tcoignio/.zim/modules/eriner/eriner.zsh-theme
+source /home/tcoignio/.zim/modules/completion/init.zsh
+source /home/tcoignio/.zim/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/tcoignio/.zim/modules/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /home/tcoignio/.zim/modules/zsh-autosuggestions/zsh-autosuggestions.zsh
