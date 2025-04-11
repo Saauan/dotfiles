@@ -175,7 +175,6 @@ pomodoro() {
   pomodoro-cli start --duration $1 --notify && watch -n 1 -q 2 -r pomodoro-cli status --format human
 }
 
-export OPENAI_API_KEY=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
 export HOWDOI_SEARCH_ENGINE=duckduckgo
 
 
