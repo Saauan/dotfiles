@@ -187,3 +187,4 @@ eval "$(/home/tcoignio/miniconda3/bin/conda shell.zsh hook)"
 
 export PATH=~/.local/share/gem/ruby/3.2.0/bin:$PATH
 export GEM_HOME=$HOME/.gem
+export EDITOR=nano
