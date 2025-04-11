@@ -1,12 +1,14 @@
 [user]
 	name = {{ .name }}
 	email = {{ .email }}
+{{ if ne .chezmoi.group "g5k-users" }}
 [credential "https{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}github.com"]
 	helper = 
 	helper = !{{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}gh auth {{ .chezmoi.config.git.command }}-credential
 [credential "https{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}gist.github.com"]
 	helper = 
 	helper = !{{ .chezmoi.pathSeparator }}usr{{ .chezmoi.pathSeparator }}bin{{ .chezmoi.pathSeparator }}gh auth {{ .chezmoi.config.git.command }}-credential
+{{ end }}
 [filter "lfs"]
 	process = {{ .chezmoi.config.git.command }}-lfs filter-process
 	required = true

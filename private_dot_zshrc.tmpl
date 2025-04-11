@@ -1,4 +1,4 @@
-# Start configuration added by Zim install {{{
+# Start configuration added by Zim install
 #
 # User configuration sourced by interactive shells
 #
@@ -157,7 +157,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-
+bindkey \^U backward-kill-line
 
 alias youtube-mp3="yt-dlp --extract-audio --audio-format mp3"
 alias meteo="curl wttr.in"
@@ -169,21 +169,53 @@ alias hibernate="systemctl suspend"
 alias restart-audio="systemctl --user restart wireplumber pipewire pipewire-pulse"
 alias thesaurus="dict -d 'moby-thesaurus'"
 
-
+alias watchgpu="watch -n0.5 nvidia-smi"
 
 pomodoro() {
   pomodoro-cli start --duration $1 --notify && watch -n 1 -q 2 -r pomodoro-cli status --format human
 }
 
 export HOWDOI_SEARCH_ENGINE=duckduckgo
-
-
 source "$HOME/.cargo/env"
-eval $(thefuck --alias)
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(zoxide init zsh)"
-eval "$(/home/tcoignio/miniconda3/bin/conda shell.zsh hook)"
 
+export EDITOR=nano
+export VISUAL=nano
+
+{{ if eq .chezmoi.group "g5k-users" }}
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/home/tcoignion/.local/bin
+export PATH=$PATH:/home/tcoignion/unison/bin/
+. "$HOME/.cargo/env"
+export TRANSFORMERS_CACHE=/srv/storage/spirals@storage1.lille.grid5000.fr/coignion/huggingface_cache
+export HF_HOME=/srv/storage/spirals@storage1.lille.grid5000.fr/coignion/huggingface_home
+
+alias cdgpstor="cd /srv/storage/spirals@storage1.lille.grid5000.fr/coignion/"
+alias -g @up="| ~/up"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+cat /etc/motd
+
+# >>> conda initialize >>> 
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/tcoignion/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/tcoignion/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tcoignion/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/tcoignion/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+{{ else }}
+eval $(thefuck --alias)
+eval "$(/home/tcoignio/miniconda3/bin/conda shell.zsh hook)"
 export PATH=~/.local/share/gem/ruby/3.2.0/bin:$PATH
 export GEM_HOME=$HOME/.gem
-export EDITOR=nano
+{{ end }}
