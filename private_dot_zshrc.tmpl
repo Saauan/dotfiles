@@ -177,8 +177,6 @@ pomodoro() {
 
 export HOWDOI_SEARCH_ENGINE=duckduckgo
 source "$HOME/.cargo/env"
-eval "$(atuin init zsh --disable-up-arrow)"
-eval "$(zoxide init zsh)"
 
 export EDITOR=nano
 export VISUAL=nano
@@ -219,3 +217,6 @@ eval "$(/home/tcoignio/miniconda3/bin/conda shell.zsh hook)"
 export PATH=~/.local/share/gem/ruby/3.2.0/bin:$PATH
 export GEM_HOME=$HOME/.gem
 {{ end }}
+
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(zoxide init zsh)"
