@@ -153,9 +153,11 @@ zstyle ':completion:*' menu select=long
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
-
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+
+zstyle ':autocomplete:*' delay 0.2  # seconds (float)
 
 bindkey \^U backward-kill-line
 
@@ -216,6 +218,7 @@ eval $(thefuck --alias)
 eval "$(/home/tcoignio/miniconda3/bin/conda shell.zsh hook)"
 export PATH=~/.local/share/gem/ruby/3.2.0/bin:$PATH
 export GEM_HOME=$HOME/.gem
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
 
 eval "$(atuin init zsh --disable-up-arrow)"
