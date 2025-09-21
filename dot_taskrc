@@ -25,7 +25,13 @@ news.version=3.4.1
 #include solarized-light-256.theme
 #include no-color.theme
 
-uda.estimate.type=numeric
+uda.estimate.type=duration
 uda.estimate.label=Est
-report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency,estimate
-report.next.labels=ID,Active,Age,Deps,P,Project,Tag,Recur,S,Due,Until,Description,Urg,Est
+report.next.columns=id,start.age,entry.age,depends,priority,estimate,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.next.labels=ID,Active,Age,Deps,P,Est,Project,Tag,Recur,S,Due,Until,Description,Urg
+urgency.user.project.StateOfArt.coefficient=1
+report.timesorted.description=Tasks ordered by estimate
+report.timesorted.columns=id,start.age,entry.age,depends,priority,estimate,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description,urgency
+report.timesorted.labels=ID,Active,Age,Deps,P,Est,Project,Tag,Recur,S,Due,Until,Description,Urg
+report.timesorted.filter=status:pending -WAITING limit:page
+report.timesorted.sort=start+,estimate+\/,urgency-
