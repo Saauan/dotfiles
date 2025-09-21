@@ -182,12 +182,15 @@ pomodoro() {
 }
 
 export HOWDOI_SEARCH_ENGINE=duckduckgo
-source "$HOME/.cargo/env"
 
 export EDITOR=nano
 export VISUAL=nano
 
 {{ if eq .chezmoi.group "g5k-users" }}
+###
+# GRID5000
+###
+source "$HOME/.cargo/env"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/home/tcoignion/.local/bin
 export PATH=$PATH:/home/tcoignion/unison/bin/
@@ -217,9 +220,18 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-{{ else }}
-eval $(thefuck --alias)
+{{ else if eq .chezmoi.hostname "lenovo-home-server" }}
+###
+# HOME SERVER
+###
 eval "$($HOME/miniconda3/bin/conda shell.zsh hook)"
+
+{{ else }}
+###
+# THE REST
+###
+source "$HOME/.cargo/env"
+eval $(thefuck --alias)
 export PATH=$HOME/.gem/bin:$PATH
 export GEM_HOME=$HOME/.gem
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
